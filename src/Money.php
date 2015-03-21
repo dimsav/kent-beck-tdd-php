@@ -3,20 +3,24 @@
 abstract class Money
 {
     protected $amount;
+    protected $currency;
 
-    public function __construct($amount)
+    abstract public function currency();
+
+    public function __construct($amount, $currency)
     {
-        $this->amount = $amount;
+        $this->amount   = $amount;
+        $this->currency = $currency;
     }
 
     public static function dollar($amount)
     {
-        return new Dollar($amount);
+        return new Dollar($amount, 'USD');
     }
 
     public static function franc($amount)
     {
-        return new Franc($amount);
+        return new Franc($amount, 'CHF');
     }
 
     public function equals($money)
