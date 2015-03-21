@@ -1,9 +1,7 @@
 <?php
 
-class Dollar
+class Dollar extends Money
 {
-    private $amount;
-
     public function __construct($amount)
     {
         $this->amount = $amount;
@@ -14,8 +12,4 @@ class Dollar
         return new Dollar($this->amount * $multiplier);
     }
 
-    public function equals($dollar)
-    {
-        return $this->amount == $dollar->amount;
-    }
 }
