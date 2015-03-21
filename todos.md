@@ -12,3 +12,5 @@ Dollar/Franc duplication
 ~~Common equals~~
 Common times
 ~~Compare Francs with Dollars~~
+Currency?
+Delete testFrancMultiplication?
