@@ -1,11 +1,14 @@
 <?php
 
-abstract class Money
+class Money
 {
     protected $amount;
     protected $currency;
 
-    abstract public function currency();
+    public function currency()
+    {
+        return $this->currency;
+    }
 
     public function __construct($amount, $currency)
     {
@@ -23,8 +26,14 @@ abstract class Money
         return new Franc($amount, 'CHF');
     }
 
-    public function equals($money)
+    public function times($multiplier)
     {
-        return $this->amount == $money->amount && get_class($this) == get_class($money);
+        return new Money($this->amount * $multiplier, $this->currency);
+    }
+
+    public function equals(Money $money)
+    {
+        return $this->amount == $money->amount
+        && $this->currency() == $money->currency();
     }
 }
