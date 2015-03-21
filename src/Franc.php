@@ -1,6 +1,6 @@
 <?php
 
-class Dollar
+class Franc
 {
     private $amount;
 
@@ -11,7 +11,7 @@ class Dollar
 
     public function times($multiplier)
     {
-        return new Dollar($this->amount * $multiplier);
+        return new Franc($this->amount * $multiplier);
     }
 
     public function equals($dollar)
