@@ -2,4 +2,5 @@
 
 interface Expression
 {
+    public function reduce($to);
 }
