@@ -69,4 +69,16 @@ class MoneyTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(1, (new Bank())->rate("USD", "USD"));
     }
 
+    public function testMixedAddition()
+    {
+        /* @var Expression $fiveBucks */
+        $fiveBucks = Money::dollar(5);
+        /* @var Expression $tenFrancs */
+        $tenFrancs = Money::franc(10);
+        $bank = new Bank();
+        $bank->addRate("CHF", "USD", 2);
+        $result = $bank->reduce($fiveBucks->plus($tenFrancs), "USD");
+        $this->assertEquals(Money::dollar(10), $result);
+    }
+
 }

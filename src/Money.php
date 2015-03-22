@@ -2,7 +2,14 @@
 
 class Money implements Expression
 {
+    /**
+     * @var float
+     */
     public $amount;
+
+    /**
+     * @var string
+     */
     protected $currency;
 
     public function currency()
@@ -37,7 +44,12 @@ class Money implements Expression
         && $this->currency() == $money->currency();
     }
 
-    public function plus(Money $addend)
+    /**
+     * @param Expression $addend
+     *
+     * @return Expression
+     */
+    public function plus(Expression $addend)
     {
         return new Sum($this, $addend);
     }
